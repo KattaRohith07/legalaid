@@ -5,7 +5,7 @@ import pandas as pd
 import base64
 
 # Load lawyer data
-lawyer_data = pd.read_csv("C:\\Users\\jayk7\\Downloads\\legal aid\\legalaid\\lawyerdata.csv")
+lawyer_data = pd.read_csv("data/lawyerdata.csv")
 
 # Legal Aid Chatbot Homepage (no login)
 def legal_aid_homepage():
