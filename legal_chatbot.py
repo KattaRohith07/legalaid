@@ -169,8 +169,8 @@ def legal_aid_homepage():
         """
         return audio_html
 
-    st.set_page_config(page_title="Legal Aid Chatbot", page_icon="🧑‍⚖️")
-    st.title("🧑‍⚖️ Legal Aid Chatbot")
+    st.set_page_config(page_title="AI-Driven Legal Aid for Underprivileged Individuals in India", page_icon="🧑‍⚖️")
+    st.title("🧑‍⚖️ AI-Driven Legal Aid for Underprivileged Individuals in India")
 
     
 
