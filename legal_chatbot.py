@@ -246,36 +246,36 @@ def legal_aid_homepage():
     #     st.write("Details on legal aid, social services, and rehabilitation programs.")
     elif menu == support_label:
         st.write("### Rehabilitation and Support Options")
-    st.write("Details on legal aid, social services, and rehabilitation programs.")
+        st.write("Details on legal aid, social services, and rehabilitation programs.")
 
-    # Load rehabilitation centers data
-    rehab_data = pd.read_csv("data/rehabilitation_centres.csv")  # Make sure the correct path
+        # Load rehabilitation centers data
+        rehab_data = pd.read_csv("data/rehabilitation_centres.csv")  # Make sure the correct path
 
-    state_name = st.text_input(translate_text("Enter your State Name:", lang_code))
+        state_name = st.text_input(translate_text("Enter your State Name:", lang_code))
 
-    if state_name:
-        # Filter rehabilitation centers by state
-        filtered_rehab = rehab_data[rehab_data["State"].str.contains(state_name, case=False, na=False)]
+        if state_name:
+            # Filter rehabilitation centers by state
+            filtered_rehab = rehab_data[rehab_data["Location"].str.contains(state_name, case=False, na=False)]
 
-        if not filtered_rehab.empty:
-            st.write(f"### Rehabilitation Centers in {state_name.title()}")
+            if not filtered_rehab.empty:
+                st.write(f"### Rehabilitation Centers in {state_name.title()}")
 
-            # Column Titles
-            cols = st.columns([3, 3, 2, 3])
-            cols[0].markdown("**Center Name**")
-            cols[1].markdown("**Location**")
-            cols[2].markdown("**Mobile Number**")
-            cols[3].markdown("**Consultant Name**")
-
-            # List Centers
-            for idx, row in filtered_rehab.iterrows():
+                # Column Titles
                 cols = st.columns([3, 3, 2, 3])
-                cols[0].markdown(f"**{row['Center Name']}**")
-                cols[1].markdown(row['City'])  # or row['Address'] based on your preference
-                cols[2].markdown(row['Contact Number'])
-                cols[3].markdown(row['Consultant Name'])
-        else:
-            st.warning(f"No rehabilitation centers found for {state_name}. Please check your spelling and try again.")
+                cols[0].markdown("**Center Name**")
+                cols[1].markdown("**Location**")
+                cols[2].markdown("**Mobile Number**")
+                cols[3].markdown("**Consultant Name**")
+
+                # List Centers
+                for idx, row in filtered_rehab.iterrows():
+                    cols = st.columns([3, 3, 2, 3])
+                    cols[0].markdown(f"**{row['Center Name']}**")
+                    cols[1].markdown(row['Location'])  # or row['Address'] based on your dataset
+                    cols[2].markdown(row['Mobile Number'])
+                    cols[3].markdown(row['Consultant Name'])
+            else:
+                st.warning(f"No rehabilitation centers found for {state_name}. Please check your spelling and try again.")
 
 
 
