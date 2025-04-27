@@ -169,8 +169,8 @@ def legal_aid_homepage():
         """
         return audio_html
 
-    st.set_page_config(page_title="AI-Driven Legal Aid for Underprivileged Individuals in India", page_icon="🧑‍⚖️")
-    st.title("🧑‍⚖️ AI-Driven Legal Aid for Underprivileged Individuals in India")
+    st.set_page_config(page_title="Legal Aid Chatbot", page_icon="🧑‍⚖️")
+    st.title("🧑‍⚖️ Legal Aid Chatbot")
 
     
 
@@ -249,36 +249,27 @@ def legal_aid_homepage():
         st.write("Details on legal aid, social services, and rehabilitation programs.")
 
         # Load rehabilitation centers data
-        rehab_data = pd.read_csv("data/rehabilitation_centres_states.csv")  # Make sure the correct path
+        rehab_data = pd.read_csv("data/rehabilitation_centres.csv")  # Make sure the correct path
 
-        state_name = st.text_input(translate_text("Enter your State Name:", lang_code))
+        if not rehab_data.empty:
+            st.write("### List of Rehabilitation Centers")
 
-        if state_name:
-            # Filter rehabilitation centers by state
-            filtered_rehab = rehab_data[rehab_data["State"].str.contains(state_name, case=False, na=False)]
+            # Column Titles
+            cols = st.columns([3, 3, 2, 3])
+            cols[0].markdown("**Center Name**")
+            cols[1].markdown("**Location**")
+            cols[2].markdown("**Mobile Number**")
+            cols[3].markdown("**Consultant Name**")
 
-            if not filtered_rehab.empty:
-                st.write(f"### Rehabilitation Centers in {state_name.title()}")
-
-                # Column Titles
-                cols = st.columns([3, 3, 2, 3,3])
-                cols[0].markdown("**Center Name**")
-                cols[1].markdown("**Location**")
-                cols[2].markdown("**State**")
-                cols[3].markdown("**Mobile Number**")
-                cols[4].markdown("**Consultant Name**")
-
-                # List Centers
-                for idx, row in filtered_rehab.iterrows():
-                    cols = st.columns([3, 3, 2, 3,3])
-                    cols[0].markdown(f"**{row['Center Name']}**")
-                    cols[1].markdown(row['Location'])  # or row['Address'] based on your dataset
-                    cols[3].markdown(row['State'])
-                    cols[3].markdown(row['Mobile Number'])
-                    cols[4].markdown(row['Consultant Name'])
-            else:
-                st.warning(f"No rehabilitation centers found for {state_name}. Please check your spelling and try again.")
-
+            # List All Centers
+            for idx, row in rehab_data.iterrows():
+                cols = st.columns([3, 3, 2, 3])
+                cols[0].markdown(f"**{row['Center Name']}**")
+                cols[1].markdown(row['City'])  # or row['Address'] based on your dataset
+                cols[2].markdown(row['Contact Number'])
+                cols[3].markdown(row['Consultant Name'])
+        else:
+            st.warning("No rehabilitation center data available.")
 
 
     footer = translate_text("This is a prototype. Always consult a licensed lawyer for formal legal advice.", dest=lang_code)
