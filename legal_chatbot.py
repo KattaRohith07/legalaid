@@ -184,7 +184,7 @@ def legal_aid_homepage():
 
     def logout():
     # You can replace this with any logic for logout
-    st.session_state.clear()  # Clear session if you are storing any data in session_state
+        st.session_state.clear()  # Clear session if you are storing any data in session_state
     st.experimental_rerun()  # Re-run the app to simulate redirect (to home page or login)
 
 # Display the logout button
