@@ -182,6 +182,14 @@ def legal_aid_homepage():
     #     </div>
     # """, unsafe_allow_html=True)
 
+    st.markdown("""
+        <div style='text-align: right;'>
+            <button onclick="window.location.href='index.html'" style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
+                Logout
+            </button>
+        </div>
+    """, unsafe_allow_html=True)
+
     language = st.selectbox("Choose your language", list(lang_dict.keys()))
     lang_code = lang_dict[language]
 
