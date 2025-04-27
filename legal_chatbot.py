@@ -184,9 +184,11 @@ def legal_aid_homepage():
 
     st.markdown("""
         <div style='text-align: right;'>
-            <button onclick="window.location.href='/'" style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
-                Logout
-            </button>
+            <a href="http://localhost:8080/index.html">
+                <button style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
+                    Logout
+                </button>
+            </a>
         </div>
     """, unsafe_allow_html=True)
 
