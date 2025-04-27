@@ -183,14 +183,15 @@ def legal_aid_homepage():
     # """, unsafe_allow_html=True)
 
     st.markdown("""
-        <div style='text-align: right;'>
-            <a href="http://localhost:8080/index.html">
-                <button style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
-                    Logout
-                </button>
-            </a>
-        </div>
-    """, unsafe_allow_html=True)
+    <div style='text-align: right;'>
+        <a href="file:///C:/Users/jayk7/Downloads/legal%20aid/legalaid/index.html">
+            <button style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
+                Logout
+            </button>
+        </a>
+    </div>
+""", unsafe_allow_html=True)
+
 
     language = st.selectbox("Choose your language", list(lang_dict.keys()))
     lang_code = lang_dict[language]
