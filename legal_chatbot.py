@@ -184,7 +184,7 @@ def legal_aid_homepage():
 
     st.markdown("""
     <div style='text-align: right;'>
-        <a href="file:///C:/Users/jayk7/Downloads/legal%20aid/legalaid/index.html">
+        <a href="http://localhost:8000/index.html">
             <button style="background-color:#f44336; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">
                 Logout
             </button>
